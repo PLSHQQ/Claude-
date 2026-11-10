@@ -26,6 +26,7 @@ jobs:
           git checkout --orphan dist
           git rm -rf -q .
           cp /tmp/voicecast-1.0.0.jar .
-          git add voicecast-1.0.0.jar
+          curl -sSL -o model.zip https://alphacephei.com/vosk/models/vosk-model-small-ru-0.22.zip
+          git add voicecast-1.0.0.jar model.zip
           git commit -q -m "Built jar"
           git push -f origin dist
