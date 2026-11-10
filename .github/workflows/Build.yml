@@ -1,0 +1,12 @@
+name: build
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21', cache: maven}
+      - run: mvn -B package
+      - uses: actions/upload-artifact@v4
+        with: {name: voicecast, path: target/voicecast-1.0.0.jar}
