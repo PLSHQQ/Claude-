@@ -1,5 +1,7 @@
 name: build
 on: [push, workflow_dispatch]
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -10,3 +12,9 @@ jobs:
       - run: mvn -B package
       - uses: actions/upload-artifact@v4
         with: {name: voicecast, path: target/voicecast-1.0.0.jar}
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete v1.0.0 --yes --cleanup-tag || true
+          gh release create v1.0.0 target/voicecast-1.0.0.jar --title "VoiceCast 1.0.0" --notes "Сборка плагина VoiceCast" --target "$GITHUB_SHA"
