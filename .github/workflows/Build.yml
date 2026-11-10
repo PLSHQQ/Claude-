@@ -18,3 +18,14 @@ jobs:
         run: |
           gh release delete v1.0.0 --yes --cleanup-tag || true
           gh release create v1.0.0 target/voicecast-1.0.0.jar --title "VoiceCast 1.0.0" --notes "Сборка плагина VoiceCast" --target "$GITHUB_SHA"
+      - name: Publish jar to dist branch
+        run: |
+          cp target/voicecast-1.0.0.jar /tmp/
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git checkout --orphan dist
+          git rm -rf -q .
+          cp /tmp/voicecast-1.0.0.jar .
+          git add voicecast-1.0.0.jar
+          git commit -q -m "Built jar"
+          git push -f origin dist
