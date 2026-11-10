@@ -1,0 +1,45 @@
+name: voices
+on:
+  push:
+    paths: ['voices/**', '.github/workflows/voices.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  gen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Generate voice lines
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq espeak-ng zip
+          pip install -q piper-tts==1.2.0 || true
+          mkdir -p models out
+          for v in dmitri irina; do
+            for ext in onnx onnx.json; do
+              curl -sSL -o models/ru_RU-$v-medium.$ext "https://huggingface.co/rhasspy/piper-voices/resolve/main/ru/ru_RU/$v/medium/ru_RU-$v-medium.$ext" || true
+            done
+          done
+          ls -la models
+          : > engine.txt
+          while IFS='|' read -r name voice text; do
+            [ -z "$name" ] && continue
+            echo "$text" | piper --model models/ru_RU-$voice-medium.onnx --output_file out/$name.wav >/dev/null 2>piper.err || true
+            if [ "$(stat -c%s out/$name.wav 2>/dev/null || echo 0)" -gt 2000 ]; then echo "$name piper" >> engine.txt
+            else tail -2 piper.err || true; espeak-ng -v ru -s 140 -w out/$name.wav "$text"; echo "$name espeak" >> engine.txt; fi
+          done < voices/lines.txt
+          cat engine.txt; ls -la out
+          cd out && zip -q ../voices.zip *.wav
+      - name: Publish to dist-voices branch
+        run: |
+          cp voices.zip engine.txt /tmp/
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git checkout --orphan dist-voices
+          git rm -rf -q .
+          cp /tmp/voices.zip /tmp/engine.txt .
+          git add voices.zip engine.txt
+          git commit -q -m "Voice lines"
+          git push -f origin dist-voices

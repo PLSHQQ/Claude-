@@ -1,0 +1,28 @@
+intro_choso|dmitri|Тёсо. Проклятая утроба.
+intro_hanami|irina|Ханами. Проклятие леса.
+intro_cioccolata|dmitri|Чокколата. Врач.
+intro_higuruma|dmitri|Хигурума Хироми. Судья.
+intro_hakari|dmitri|Хакари Киндзи. Джекпот!
+intro_diavolo|dmitri|Диаволо. Король Пассионе.
+intro_maki|irina|Зенин Маки. Без проклятой энергии.
+intro_valentine|dmitri|Фанни Валентайн. Президент.
+intro_todo|dmitri|Тодо Аои. Лучший друг!
+intro_hitler|dmitri|Адольф Гитлер. Тиран, которого надо остановить.
+intro_uraume|irina|Ураумэ. Ледяной мастер.
+intro_nanami|dmitri|Нанами Кенто. Маг первого ранга.
+intro_pucci|dmitri|Энрико Пуччи. Падре.
+intro_kars|dmitri|Карс. Совершенное существо.
+intro_yuta|dmitri|Юта Оккоцу. Особый ранг.
+intro_wamuu|dmitri|Ваму. Воин ветра.
+intro_vice|dmitri|Ванилла Айс. Тьма без дна.
+rage|dmitri|Босс в ярости!
+nova|dmitri|Беги от центра!
+victory|dmitri|Победа!
+h_order|dmitri|Приказ: вперёд!
+h_wave|dmitri|Ударная волна!
+h_dash|dmitri|Рывок!
+h_regen|dmitri|Он восстанавливает силы.
+h_blitz|dmitri|Блицкриг!
+h_barb|dmitri|Барбаросса!
+h_bunker|dmitri|Бункер!
+h_wrath|dmitri|Гнев вождя!
