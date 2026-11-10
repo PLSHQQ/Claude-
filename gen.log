@@ -1,0 +1,27 @@
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 9 files:  22%|██▏       | 2/9 [00:00<00:00, 18.61it/s]Fetching 9 files:  78%|███████▊  | 7/9 [00:00<00:00,  9.80it/s]Fetching 9 files: 100%|██████████| 9/9 [00:07<00:00,  1.18s/it]Fetching 9 files: 100%|██████████| 9/9 [00:07<00:00,  1.14it/s]
+[transformers] Model config: bos_token_id must be `None` or an integer within the vocabulary (between 0 and 255), got 50256. This may result in unexpected behavior.
+[transformers] Model config: eos_token_id must be `None` or an integer within the vocabulary (between 0 and 255), got 50256. This may result in unexpected behavior.
+[transformers] Model config: bos_token_id must be `None` or an integer within the vocabulary (between 0 and 607), got 50256. This may result in unexpected behavior.
+[transformers] Model config: eos_token_id must be `None` or an integer within the vocabulary (between 0 and 607), got 50256. This may result in unexpected behavior.
+/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/torchaudio/_backend/utils.py:213: UserWarning: In 2.9, this function's implementation will be changed to use torchaudio.load_with_torchcodec` under the hood. Some parameters like ``normalize``, ``format``, ``buffer_size``, and ``backend`` will be ignored. We recommend that you port your code to rely directly on TorchCodec's decoder instead: https://docs.pytorch.org/torchcodec/stable/generated/torchcodec.decoders.AudioDecoder.html#torchcodec.decoders.AudioDecoder.
+  warnings.warn(
+/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/torchaudio/_backend/ffmpeg.py:88: UserWarning: torio.io._streaming_media_decoder.StreamingMediaDecoder has been deprecated. This deprecation is part of a large refactoring effort to transition TorchAudio into a maintenance phase. The decoding and encoding capabilities of PyTorch for both audio and video are being consolidated into TorchCodec. Please see https://github.com/pytorch/audio/issues/3902 for more information. It will be removed from the 2.9 release. 
+  s = torchaudio.io.StreamReader(src, format, None, buffer_size)
+done g_intro
+done g_scream
+done g_whisper
+done g_echo
+done g_silence
+done g_rage
+done g_low
+total 1364
+drwxr-xr-x 2 runner runner   4096 Nov 10 13:02 .
+drwxr-xr-x 7 runner runner   4096 Nov 10 13:02 ..
+-rw-r--r-- 1 runner runner 293070 Nov 10 13:02 g_echo.wav
+-rw-r--r-- 1 runner runner 355534 Nov 10 13:02 g_intro.wav
+-rw-r--r-- 1 runner runner 177294 Nov 10 13:02 g_low.wav
+-rw-r--r-- 1 runner runner 209038 Nov 10 13:02 g_rage.wav
+-rw-r--r-- 1 runner runner 101518 Nov 10 13:02 g_scream.wav
+-rw-r--r-- 1 runner runner 137358 Nov 10 13:02 g_silence.wav
+-rw-r--r-- 1 runner runner 101518 Nov 10 13:02 g_whisper.wav
