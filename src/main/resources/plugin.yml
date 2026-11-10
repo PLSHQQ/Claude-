@@ -1,0 +1,15 @@
+name: VoiceCast
+version: 1.0.0
+main: ru.rplrp.voicecast.VoiceCast
+api-version: '1.21'
+depend: [voicechat]
+description: Голосовые фразы запускают способности, боссы говорят голосом
+commands:
+  voicecast:
+    description: Голосовые способности
+    usage: /voicecast on|off|reload|play <файл>
+permissions:
+  voicecast.use:
+    default: true
+  voicecast.admin:
+    default: op

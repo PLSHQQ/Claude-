@@ -1,0 +1,52 @@
+# Папка с моделью распознавания (внутри папки плагина)
+model-dir: model
+# Скачать модель при первом запуске, если её нет (около 45 МБ)
+auto-download-model: true
+model-url: "https://alphacephei.com/vosk/models/vosk-model-small-ru-0.22.zip"
+# Сколько игроков одновременно может распознаваться (на 2 ядрах лучше не больше 4)
+max-listeners: 4
+# Пауза в речи, после которой фраза считается законченной (мс)
+silence-ms: 450
+# Фразы. say - что игрок "скажет" в чат (на это реагируют скрипты Skript).
+# commands - вместо чата выполнить команды от консоли (%player% = ник).
+# require-item - способность сработает, только если у игрока есть предмет с таким названием.
+phrases:
+  - {phrase: "синий", say: "синий", cooldown: 3}
+  - {phrase: "красный", say: "красный", cooldown: 3}
+  - {phrase: "фиолетовый", say: "фиолетовый", cooldown: 5}
+  - {phrase: "бесконечность", say: "бесконечность", cooldown: 3}
+  - {phrase: "шесть глаз", say: "шесть глаз", cooldown: 3}
+  - {phrase: "обратная проклятая техника", say: "обратная проклятая техника", cooldown: 5}
+  - {phrase: "черная молния", say: "чёрная молния", cooldown: 3}
+  - {phrase: "синий рывок", say: "синий рывок", cooldown: 3}
+  - {phrase: "необъятная бездна", say: "необъятная бездна", cooldown: 10}
+  - {phrase: "расщепление", say: "расщепление", cooldown: 3}
+  - {phrase: "разрез", say: "разрез", cooldown: 3}
+  - {phrase: "фуга", say: "фуга", cooldown: 5}
+  - {phrase: "расширение территории", say: "Расширение территории", cooldown: 10}
+  - {phrase: "простая территория", say: "простая территория", cooldown: 5}
+  - {phrase: "открытая территория", say: "открытая территория", cooldown: 5}
+  - {phrase: "снять территорию", say: "снять территорию", cooldown: 3}
+  - {phrase: "время снова идет", say: "время снова идёт", cooldown: 3}
+  # JJBA: способности по названию предмета
+  - phrase: "ора ора"
+    require-item: "Ора Ора"
+    cooldown: 5
+    commands:
+      - "tag %player% add jj_self"
+      - "execute as %player% at @s run function jj:a/barrage {pw:12,r:6}"
+      - "tag %player% remove jj_self"
+  - phrase: "муда муда"
+    require-item: "Муда Муда"
+    cooldown: 5
+    commands:
+      - "tag %player% add jj_self"
+      - "execute as %player% at @s run function jj:a/barrage {pw:12,r:6}"
+      - "tag %player% remove jj_self"
+  - phrase: "звездный палец"
+    require-item: "Звёздный палец"
+    cooldown: 6
+    commands:
+      - "tag %player% add jj_self"
+      - "execute as %player% at @s run function jj:a/finger {pw:18,r:12}"
+      - "tag %player% remove jj_self"
